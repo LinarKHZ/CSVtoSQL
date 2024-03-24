@@ -1,0 +1,10 @@
+C:\Users\Linar\source\repos\CSVTOSQL\CSVTOSQL\bin\Debug\CSVTOSQL.exe.config
+C:\Users\Linar\source\repos\CSVTOSQL\CSVTOSQL\bin\Debug\CSVTOSQL.exe
+C:\Users\Linar\source\repos\CSVTOSQL\CSVTOSQL\bin\Debug\CSVTOSQL.pdb
+C:\Users\Linar\source\repos\CSVTOSQL\CSVTOSQL\obj\Debug\CSVTOSQL.Form1.resources
+C:\Users\Linar\source\repos\CSVTOSQL\CSVTOSQL\obj\Debug\CSVTOSQL.Properties.Resources.resources
+C:\Users\Linar\source\repos\CSVTOSQL\CSVTOSQL\obj\Debug\CSVTOSQL.csproj.GenerateResource.cache
+C:\Users\Linar\source\repos\CSVTOSQL\CSVTOSQL\obj\Debug\CSVTOSQL.csproj.CoreCompileInputs.cache
+C:\Users\Linar\source\repos\CSVTOSQL\CSVTOSQL\obj\Debug\CSVTOSQL.exe
+C:\Users\Linar\source\repos\CSVTOSQL\CSVTOSQL\obj\Debug\CSVTOSQL.pdb
+C:\Users\Linar\source\repos\CSVTOSQL\CSVTOSQL\obj\Debug\CSVTOSQL.csprojAssemblyReference.cache
