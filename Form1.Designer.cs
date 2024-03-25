@@ -39,6 +39,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.convertButton = new System.Windows.Forms.Button();
             this.tableNameBox = new System.Windows.Forms.TextBox();
+            this.changeBox = new System.Windows.Forms.TextBox();
+            this.changeButton = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -61,6 +63,7 @@
             this.inputtextbox.Name = "inputtextbox";
             this.inputtextbox.Size = new System.Drawing.Size(616, 20);
             this.inputtextbox.TabIndex = 0;
+            this.inputtextbox.TextChanged += new System.EventHandler(this.inputtextbox_TextChanged);
             // 
             // inputButton
             // 
@@ -123,22 +126,43 @@
             this.tableNameBox.Name = "tableNameBox";
             this.tableNameBox.Size = new System.Drawing.Size(616, 20);
             this.tableNameBox.TabIndex = 0;
-            this.tableNameBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // changeBox
+            // 
+            this.changeBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.changeBox.Location = new System.Drawing.Point(15, 261);
+            this.changeBox.Multiline = true;
+            this.changeBox.Name = "changeBox";
+            this.changeBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.changeBox.Size = new System.Drawing.Size(613, 145);
+            this.changeBox.TabIndex = 4;
+            // 
+            // changeButton
+            // 
+            this.changeButton.Location = new System.Drawing.Point(634, 261);
+            this.changeButton.Name = "changeButton";
+            this.changeButton.Size = new System.Drawing.Size(144, 19);
+            this.changeButton.TabIndex = 1;
+            this.changeButton.Text = "Заменить";
+            this.changeButton.UseVisualStyleBackColor = true;
+            this.changeButton.Click += new System.EventHandler(this.changeButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(802, 490);
+            this.Controls.Add(this.changeBox);
+            this.Controls.Add(this.inputtextbox);
             this.Controls.Add(this.convertButton);
             this.Controls.Add(label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Impo);
+            this.Controls.Add(this.changeButton);
             this.Controls.Add(this.outputButton);
             this.Controls.Add(this.inputButton);
             this.Controls.Add(this.tableNameBox);
             this.Controls.Add(this.outputtextbox);
-            this.Controls.Add(this.inputtextbox);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -159,6 +183,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button convertButton;
         private System.Windows.Forms.TextBox tableNameBox;
+        private System.Windows.Forms.TextBox changeBox;
+        private System.Windows.Forms.Button changeButton;
     }
 }
 

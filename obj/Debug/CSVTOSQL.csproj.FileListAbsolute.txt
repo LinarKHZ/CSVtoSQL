@@ -7,4 +7,4 @@ C:\Users\Linar\source\repos\CSVTOSQL\CSVTOSQL\obj\Debug\CSVTOSQL.csproj.Generate
 C:\Users\Linar\source\repos\CSVTOSQL\CSVTOSQL\obj\Debug\CSVTOSQL.csproj.CoreCompileInputs.cache
 C:\Users\Linar\source\repos\CSVTOSQL\CSVTOSQL\obj\Debug\CSVTOSQL.exe
 C:\Users\Linar\source\repos\CSVTOSQL\CSVTOSQL\obj\Debug\CSVTOSQL.pdb
-C:\Users\Linar\source\repos\CSVTOSQL\CSVTOSQL\obj\Debug\CSVTOSQL.csprojAssemblyReference.cache
+C:\Users\Linar\source\repos\CSVTOSQL\CSVTOSQL\obj\Debug\CSVTOSQL.csproj.AssemblyReference.cache

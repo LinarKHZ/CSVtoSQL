@@ -50,12 +50,23 @@ namespace CSVTOSQL
 
         private void convertButton_Click(object sender, EventArgs e)
         {
-           Convert_Procedure.CSVtoSQL.Convert(this.inputtextbox.Text, this.tableNameBox.Text, this.outputtextbox.Text);
+            Convert_Procedure.CSVtoSQL.Convert(this.inputtextbox.Text, this.tableNameBox.Text, this.outputtextbox.Text);
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+
+
+        private void inputtextbox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void changeButton_Click(object sender, EventArgs e)
+        {
+            Convert_Procedure.ChangeText.Change(this.outputtextbox.Text, this.changeBox.Text);
         }
     }
 }

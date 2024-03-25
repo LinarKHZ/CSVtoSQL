@@ -31,28 +31,20 @@ namespace CSVTOSQL.Convert_Procedure
                 //закрыть файл
                 sr.Close();
                 int tableCount = 0;
-                int lineAmount = inputTable.Count();
                 //Pass the filepath and filename to the StreamWriter Constructor
                 StreamWriter sw = new StreamWriter(output);
-                //Write a line of text                
+                //Write a line of text
+                string insertLine = "";
                 foreach (var item in inputTable)
                 {
                     if (tableCount > 0)
                     {
-                        if (tableCount < lineAmount-1)
-                        {
-                            sw.WriteLine(ConvertString(item));
+                            sw.WriteLine(ConvertString(item, insertLine));
                             tableCount++;
-                        }
-                        else
-                        {
-                            sw.WriteLine(ConvertEndString(item));
-                            tableCount++;
-                        }
                     }
                     else
                     {
-                        sw.WriteLine(ConvertNameString(item, tableName));
+                        insertLine = ConvertNameString(item, tableName);
                         tableCount++;
                     }
                 }
@@ -71,21 +63,27 @@ namespace CSVTOSQL.Convert_Procedure
         }
         private static string ConvertNameString(string input, string tableName)
         {
-            string textoutput = string.Join(",", input.Split(';').ToArray());
-            return "INSERT INTO " + tableName + " (" + textoutput + ")";
+            string nulltext = "";
+            var x1 = input.Split(';').Select(x => x.Replace("\u0022", nulltext)).ToArray();
+            List<string> list = new List<string>();
+            list.AddRange(x1);
+            string textoutput = string.Join(",", list);
+            return "INSERT INTO " + tableName + " (" + textoutput + ") ";
 
         }
-        private static string ConvertString(string input)
+        private static string ConvertString(string input, string insertLine)
         {
             string nulltext = "";
-            string textoutput = string.Join(",", input.Split(';').Select(x => x.Replace("\u0022", nulltext)).Select(x => x.Any(c => !char.IsDigit(c)) & x != "NULL" ? x.Insert(0, "\u0027").Insert(x.Count() + 1, "\u0027") : x).Select(x => x == "" ? x = "NULL" : x).ToArray());
-            return "SELECT " + textoutput + " UNION ALL";
-        }
-        private static string ConvertEndString(string input)
-        {
-            string nulltext = "";
-            string textoutput = string.Join(",", input.Split(';').Select(x => x.Replace("\u0022", nulltext)).Select(x => x.Any(c => char.IsDigit(c)) && x != "NULL" ? x.Insert(0, "\u0027").Insert(x.Count() + 1, "\u0027") : x).Select(x => x == "" ? x = "NULL" : x).ToArray());
-            return "SELECT " + textoutput + ";";
+            var x1 = input.Split(';');
+            var x2 = x1.Select(x => x.Replace("\u0027", nulltext));
+            var x3 = x2.Select(x => x.Replace('\u0022', '\u0027'));
+            var x4 = x3.Select(x => x.All(c => char.IsDigit(c)) | x.Any(c => c == '\u0027') | x == "NULL" ? x : x.Insert(0, "\u0027").Insert(x.Count() + 1, "\u0027"));
+            var x5 = x4.Select(x => x == "" ? x = "NULL" : x).Select(x => x == "\u0027\u0027" ? x = "NULL" : x);
+            var x6 = x5.Select(x => x.Contains('-') & x.Contains(':') & !x.Any(c=> char.IsLetter(c)) ? x = x.Insert(11," ") : x).ToArray();
+            List<string> list = new List<string>();
+            list.AddRange(x6);
+            string textoutput = string.Join(",", list);
+            return insertLine + "VALUES (" + textoutput + ") ;";
         }
 
     }
