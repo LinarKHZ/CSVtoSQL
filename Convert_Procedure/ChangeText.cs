@@ -11,7 +11,7 @@ namespace CSVTOSQL.Convert_Procedure
     {
         public static void Change(string output,string changeValue)
         {
-            var changeArray = changeValue.Split('\u000D');
+            var changeArray = changeValue.Split('\n').Select(x => x.Replace("\u000D",""));
             string str = string.Empty;
             using (System.IO.StreamReader reader = System.IO.File.OpenText(output))
             {
