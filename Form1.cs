@@ -17,7 +17,8 @@ namespace CSVTOSQL
         {
             InitializeComponent();
 
-            this.openFileDialog1.Filter = "Text files(*.csv)|*.csv";
+            //this.openFileDialog1.Filter = "Text files(*.csv)|*.csv";
+            this.openFileDialog1.Filter = "Text files(*.xlsx)|*.xlsx";
             this.saveFileDialog1.Filter = "Text files(*.sql)|*.sql";
         }
 
@@ -50,7 +51,8 @@ namespace CSVTOSQL
 
         private void convertButton_Click(object sender, EventArgs e)
         {
-            Convert_Procedure.CSVtoSQL.Convert(this.inputtextbox.Text, this.tableNameBox.Text, this.outputtextbox.Text);
+            //Convert_Procedure.CSVtoSQL.Convert(this.inputtextbox.Text, this.tableNameBox.Text, this.outputtextbox.Text);
+            Convert_Procedure.ExcelToSQL.Convert(this.inputtextbox.Text, this.tableNameBox.Text, this.outputtextbox.Text);
         }
 
 
