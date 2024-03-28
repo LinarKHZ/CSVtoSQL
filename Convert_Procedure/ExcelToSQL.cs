@@ -15,10 +15,11 @@ namespace CSVTOSQL.Convert_Procedure
     {
         public static void Convert(string input, string tableName, string output)
         {
+            int tableCount = 0;
             var inputTable = new List<string>();
             try
             {
-                int tableCount = 0;
+                
                 string insertLine = "";
                 var excelWorkbook = new XLWorkbook(input);
                 var ws = excelWorkbook.Worksheet(1).RangeUsed().RowsUsed();
@@ -47,7 +48,7 @@ namespace CSVTOSQL.Convert_Procedure
             }
             finally
             {
-                MessageBox.Show("Конвертация закончена. Ошибок ");
+                MessageBox.Show("Конвертация закончена. Всего строк " + tableCount);
             }
 
         }
