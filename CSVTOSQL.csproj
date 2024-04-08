@@ -121,8 +121,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Convert_Procedure\ChangeText.cs" />
-    <Compile Include="Convert_Procedure\CSVtoSQL.cs" />
     <Compile Include="Convert_Procedure\ExcelToSQL.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

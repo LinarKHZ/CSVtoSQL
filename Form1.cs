@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using CSVTOSQL;
 
 namespace CSVTOSQL
 {
@@ -15,10 +7,11 @@ namespace CSVTOSQL
     {
         public Form1()
         {
+            //Инициализация Form
             InitializeComponent();
-
-            //this.openFileDialog1.Filter = "Text files(*.csv)|*.csv";
+            //Расширение файлов доступных открытия
             this.openFileDialog1.Filter = "Text files(*.xlsx)|*.xlsx";
+            //Расширение файлов доступных сохранения
             this.saveFileDialog1.Filter = "Text files(*.sql)|*.sql";
         }
 
@@ -26,10 +19,12 @@ namespace CSVTOSQL
         {
 
         }
-
-
+        //
+        //Действия при нажатие на кнопку открытия файла
+        //
         private void inputButton_Click(object sender, EventArgs e)
         {
+            //Проверка на успешность открытия диалогового окна 
             if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
                 return;
             // получаем выбранный файл
@@ -39,8 +34,12 @@ namespace CSVTOSQL
 
         }
 
+        //
+        //Действия при нажатие на кнопку выбора файла сохранения
+        //
         private void outputButton_Click(object sender, EventArgs e)
         {
+            //Проверка на успешность открытия диалогового окна 
             if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
                 return;
             // получаем выбранный файл
@@ -51,24 +50,11 @@ namespace CSVTOSQL
 
         private void convertButton_Click(object sender, EventArgs e)
         {
-            //Convert_Procedure.CSVtoSQL.Convert(this.inputtextbox.Text, this.tableNameBox.Text, this.outputtextbox.Text);
+            //Процедура конвертации файла Excel в файл SQL
             Convert_Procedure.ExcelToSQL.Convert(this.inputtextbox.Text, this.tableNameBox.Text, this.outputtextbox.Text);
         }
 
 
 
-        private void inputtextbox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void changeButton_Click(object sender, EventArgs e)
-        {
-            Convert_Procedure.ChangeText.Change(this.outputtextbox.Text, this.changeBox.Text);
-        }
     }
 }
